@@ -1,0 +1,22 @@
+{
+  "v3_use_offset": true,
+  "token_hmac_secret_key": "ae554144-5c95-4952-97b8-a42db6c0d779",
+  "admin_password": "ea589e19-7804-4c65-aa24-5dfa874da26d",
+  "admin_secret": "3bc2aa55-2f09-4bf2-bce7-428c05182801",
+  "api_key": "6454e892-e8a4-4b44-b2bf-0a118afea096",
+
+  "history_size": 10,
+  "history_lifetime": 3000,
+  "history_recover": true,
+  "publish": true,
+  "subscribe_to_publish": true,
+
+  "proxy_publish_endpoint": "http://host.docker.internal:9091/publish",
+  "proxy_publish_timeout": 1,
+  "proxy_publish": true,
+
+  
+  "engine": "redis", 
+  "memory_history_meta_ttl": 10000, 
+  "redis_host": "icebaby-chat-redis"
+}

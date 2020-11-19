@@ -1,0 +1,45 @@
+version: "2.4"
+services:
+    icebaby-user-service:
+        image: toyokoyo199/icebaby-user-service:1.0
+        container_name: icebaby-user-service
+        ports:
+            - "9090:9090"
+        networks:
+            - icebaby-network
+    icebaby-user-mysql:
+        image: mysql
+        container_name: icebaby-user-mysql
+        volumes:
+            - "./icebaby-user-mysql-volumes/initdb:/docker-entrypoint-initdb.d"
+        ports:
+            - "3306:3306"
+        networks:
+            - icebaby-network
+        environment:
+            - MYSQL_DATABASE=icebaby
+            - MYSQL_ROOT_PASSWORD=123456
+            - MYSQL_USER=henry
+            - MYSQL_PASSWORD=123456
+    icebaby-chat-engine:
+        image: centrifugo/centrifugo
+        container_name: icebaby-chat-engine
+        volumes:
+            - "./icebaby-chat-engine-volumes:/centrifugo"
+        ports:
+            - "8000:8000"
+        networks:
+            - icebaby-network
+        ulimits:
+            nofile:
+               soft: 65536
+               hard: 65536
+        command: centrifugo --config=config.json --admin --admin_insecure
+    icebaby-chat-redis:
+        image: redis
+        networks:
+            - icebaby-network
+        container_name: icebaby-chat-redis
+networks:
+    icebaby-network:
+        driver: bridge
