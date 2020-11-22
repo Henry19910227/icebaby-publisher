@@ -36,10 +36,3 @@ CREATE TABLE user_auths (
 	 `password` VARCHAR(10) NOT NULL DEFAULT '',
 	CONSTRAINT fk_auths_users FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-CREATE TABLE user_verify (
-     id INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-		 user_id INT(11) UNSIGNED,
-		 `code` VARCHAR(6) NOT NULL DEFAULT '',
-		 create_at DATETIME NOT NULL DEFAULT NOW()
-);
