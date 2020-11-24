@@ -3,8 +3,6 @@ USE icebaby;
 CREATE TABLE users (
    id INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    role TINYINT(1) UNSIGNED NOT NULL DEFAULT '1',
-   invite_code VARCHAR(10) UNIQUE NOT NULL DEFAULT '',
-   invite_user_id INT(11) UNSIGNED NOT NULL DEFAULT '0',
    create_at DATETIME NOT NULL DEFAULT NOW(),
    update_at DATETIME NOT NULL DEFAULT NOW(),
    `status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0'
@@ -25,6 +23,8 @@ CREATE TABLE user_details (
 	favorite VARCHAR(50) NOT NULL DEFAULT '',
 	smoke tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
 	drink tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+   nvite_code VARCHAR(10) UNIQUE NOT NULL DEFAULT '',
+	invite_user_id INT(11) UNSIGNED NOT NULL DEFAULT '0',
 	CONSTRAINT fk_details_users FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
