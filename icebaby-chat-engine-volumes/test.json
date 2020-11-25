@@ -1,0 +1,15 @@
+{
+    "v3_use_offset": true,
+    "token_hmac_secret_key": "henry",
+    "api_key": "6454e892-e8a4-4b44-b2bf-0a118afea096",
+  
+    "history_size": 10,
+    "history_lifetime": 3000,
+    "history_recover": true,
+    "publish": true,
+    "subscribe_to_publish": true,
+    
+    "engine": "redis", 
+    "memory_history_meta_ttl": 10000, 
+    "redis_host": "icebaby-chat-redis"
+  }

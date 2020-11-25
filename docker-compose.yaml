@@ -1,7 +1,7 @@
 version: "2.4"
 services:
     icebaby-user-service:
-        image: toyokoyo199/icebaby-user-service:1.0
+        image: toyokoyo199/icebaby-user-service:2.0
         container_name: icebaby-user-service
         ports:
             - "9090:9090"
@@ -34,7 +34,7 @@ services:
             nofile:
                soft: 65536
                hard: 65536
-        command: centrifugo --config=config.json --admin --admin_insecure
+        command: centrifugo --config=test.json --admin --admin_insecure
     icebaby-chat-redis:
         image: redis
         networks:
